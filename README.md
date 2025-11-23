@@ -1,18 +1,3 @@
-Got it ✅
-
-You’re asking for a **professional, industry-grade document** that follows the **same style, structure, tone, and discipline** as the example you provided — which:
-
-* Is **clear**
-* Is **formal**
-* Uses **standardized structure**
-* Uses **objective, factual language**
-* Breaks information into **phases/sections**
-* States the **what, why, and how**
-* Reflects real industry documentation practices
-
-So below is the rewritten Technical Note in that same style — structured, systematic, and professional, similar to documentation used in engineering organizations.
-
----
 
 # ✅ **TECHNICAL NOTE**
 
