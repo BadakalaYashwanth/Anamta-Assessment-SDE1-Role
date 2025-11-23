@@ -1,0 +1,176 @@
+TECHNICAL NOTE – Synthetic Infrared (IR) Dataset Generator
+
+1. PURPOSE
+
+The purpose of this document is to provide a clear and professional reference for the design, operation, and scope of the Synthetic Infrared (IR) Dataset Generator. The document explains the objectives, system requirements, execution steps, technical components, limitations, and potential improvements. It is intended for engineering reviewers and stakeholders who need a structured understanding of the project.
+
+--------------------------------------------------------------
+2. PROJECT OBJECTIVE
+
+The objective of this project is to generate a synthetic infrared image sequence that imitates thermal camera output. The dataset includes:
+
+- A cooler background
+- One or more warmer objects
+- Motion across frames
+- Sensor effects such as noise and blur
+
+The dataset is completely computer-generated and does not use real hardware.
+
+Primary applications include:
+- Machine learning and computer vision model training
+- Testing IR-based detection and tracking algorithms
+- Synthetic data workflows for GAN-related research
+
+--------------------------------------------------------------
+3. SYSTEM EXECUTION
+
+3.1 Preparation
+- Ensure Python 3.10 or higher is installed.
+- Open the project folder in Visual Studio Code.
+- Navigate to the project directory:
+
+cd "C:\Users\Admin\Desktop\Anamta Assessment\ir_dataset_project"
+
+3.2 Activate Virtual Environment
+
+.venv\Scripts\activate
+
+A successful activation will show:
+(.venv)
+
+3.3 Install Required Library
+
+pip install pillow
+
+3.4 Run the Dataset Generator
+
+python src\ir_dataset_generator_pillow.py
+
+3.5 Output Location
+
+Generated frames will be located in:
+output\ir_frames\
+
+Files follow this sequence:
+frame_001.png
+frame_002.png
+...
+frame_030.png
+
+Frames can be compressed into a ZIP file for submission.
+
+--------------------------------------------------------------
+4. REPOSITORY ACCESS
+
+Source code and documentation are available here:
+https://github.com/BadakalaYashwanth/Anamta-Assessment-SDE1-Role
+
+This supports easy access, transparency, and version tracking.
+
+--------------------------------------------------------------
+5. KEY TERMS
+
+Infrared (IR): Invisible light used to measure heat.
+Temperature Map: A grid containing temperature values per pixel.
+Pixel Intensity: A brightness value from 0 to 255.
+Bit Depth: The grayscale range supported by the image.
+Noise: Random variation simulating real sensor behavior.
+Blur: Softening of edges similar to optical spread.
+Atmospheric Attenuation: Reduction in signal strength as heat travels through air.
+Object Motion: Movement of the warm object between frames.
+Synthetic Data: Artificially generated data rather than real camera output.
+
+--------------------------------------------------------------
+6. SYSTEM ARCHITECTURE
+
+The project uses object-oriented design for modularity.
+
+Component: IRSensorConfig
+Function: Defines sensor parameters
+Purpose: Controls resolution, bit depth, noise, and blur
+
+Component: IRObject
+Function: Represents a warm object
+Purpose: Defines shape, motion, and temperature behavior
+
+Component: IRScene
+Function: Builds the temperature map
+Purpose: Combines background and objects
+
+Component: IRDatasetGenerator
+Function: Produces image frames
+Purpose: Applies sensor effects and exports images
+
+--------------------------------------------------------------
+7. TEMPERATURE-TO-INTENSITY PROCESS
+
+1. Capture temperature value
+2. Clip it between minimum and maximum bounds
+3. Convert it to a grayscale value from 0 to 255
+4. Apply blur and noise
+5. Save the result as a PNG image
+
+Higher temperature results in a brighter pixel.
+Lower temperature results in a darker pixel.
+
+--------------------------------------------------------------
+8. COMPONENT BEHAVIOR SUMMARY
+
+IRSensorConfig:
+Maintains configuration settings and enables parameter adjustments.
+
+IRObject:
+Defines position, size, shape, motion, and temperature changes.
+
+IRScene:
+Generates a gradient-based background with randomness and integrates object temperatures.
+
+IRDatasetGenerator:
+Applies attenuation, noise, blur, and quantization, then saves frames sequentially.
+
+--------------------------------------------------------------
+9. MODELED SENSOR EFFECTS
+
+Noise: Simulates sensor imperfections.
+Blur: Represents optical diffusion.
+Bit-depth Quantization: Produces 8-bit grayscale output.
+Attenuation: Models weakening of thermal signal through air.
+
+These effects increase realism for algorithm testing.
+
+--------------------------------------------------------------
+10. LIMITATIONS
+
+- Shapes are simple
+- Temperature simulation is basic
+- No material emissivity modeling
+- No 3D depth or camera movement
+- Background remains static
+- No real-world calibration
+
+--------------------------------------------------------------
+11. RECOMMENDED IMPROVEMENTS
+
+Potential future enhancements:
+
+- Material-based emissivity modeling
+- Moving camera simulation
+- Fog, haze, or depth effects
+- Complex object shapes
+- Advanced noise patterns
+
+--------------------------------------------------------------
+12. DELIVERABLE SUMMARY
+
+- 30 grayscale IR frames
+- Sequential file naming
+- Motion and temperature variation
+- Sensor artifacts included
+- Object-oriented Python code
+- Technical documentation
+- Optional GitHub repository
+
+--------------------------------------------------------------
+CLOSING STATEMENT
+
+This project demonstrates a structured and industry-aligned approach to synthetic dataset generation, including software design, sensor behavior modeling, and dataset creation workflows.
