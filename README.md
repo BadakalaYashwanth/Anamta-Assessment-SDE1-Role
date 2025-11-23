@@ -239,10 +239,4 @@ This document reflects an organized, modular, and industry-aligned approach to s
 * Sensor behavior modeling
 * Practical dataset creation workflows
 
-If you require:
 
-* A PDF export
-* A README formatted for GitHub
-* A system diagram
-
-I can provide them immediately.
